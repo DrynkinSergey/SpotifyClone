@@ -17,7 +17,7 @@ export const Playlist = () => {
 			</div>
 			<PlaylistTitle />
 			<PlaylistDescription />
-			{/* <PlaylistContextMenu /> */}
+			<PlaylistContextMenu />
 		</a>
 	)
 }
