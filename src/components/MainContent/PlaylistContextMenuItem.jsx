@@ -1,27 +1,28 @@
 import React from 'react'
-import { PlaylistContextSubmenu } from './PlaylistContextSubmenu'
 import { ChevronRightIcon } from '@heroicons/react/outline'
+import { PlaylistContextMenu } from './PlaylistContextMenu'
 
 export const PlaylistContextMenuItem = ({ children: label, subMenuItems }) => {
-	let classes = ''
-	let buttonClasses =
-		'w-full p-3 text-left hover:text-white hover:bg-[#3e3e3e] cursor-default'
-	let icon = null
-	let subMenu = null
-
 	if (subMenuItems) {
-		classes = 'relative'
-		buttonClasses = `${buttonClasses} flex justify-between items-center`
-		icon = <ChevronRightIcon className='h-4 w-4' />
-		subMenu = <PlaylistContextSubmenu menuItems={subMenuItems} />
+		return (
+			<li className='relative'>
+				<button className='w-full p-3 text-left hover:text-white hover:bg-[#3e3e3e] cursor-default flex justify-between items-center peer'>
+					{label}
+					<ChevronRightIcon className='h-4 w-4' />
+				</button>
+				<PlaylistContextMenu
+					menuItems={subMenuItems}
+					classes='absolute top-0 left-full bg-[#282828] text-[#eaeaea] text-sm p-1 rounded shadow-xl cursor-default invisible peer-hover:visible hover:visible'
+				/>
+			</li>
+		)
 	}
+
 	return (
-		<li className={classes}>
-			<button className={buttonClasses}>
+		<li>
+			<button className='w-full p-3 text-left hover:text-white hover:bg-[#3e3e3e] cursor-default'>
 				{label}
-				{icon}
 			</button>
-			{subMenu}
 		</li>
 	)
 }
