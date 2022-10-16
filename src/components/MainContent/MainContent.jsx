@@ -1,7 +1,7 @@
 import React from 'react'
 import { Playlist } from './Playlist'
 
-export const MainContent = () => {
+export const MainContent = ({ toggleScrolling }) => {
 	const playlists = [
 		{
 			classes: '',
@@ -79,7 +79,11 @@ export const MainContent = () => {
 
 					<div className='grid sm:grid-cols-playlists-mobile md:grid-cols-playlists-tablet lg:grid-cols-playlists-desktop gap-5'>
 						{playlists.map(playlist => (
-							<Playlist key={playlist.title} {...playlist} />
+							<Playlist
+								key={playlist.title}
+								{...playlist}
+								toggleScrolling={toggleScrolling}
+							/>
 						))}
 					</div>
 				</div>
@@ -103,7 +107,11 @@ export const MainContent = () => {
 
 					<div className='grid sm:grid-cols-playlists-mobile md:grid-cols-playlists-tablet lg:grid-cols-playlists-desktop gap-5'>
 						{playlists.map(playlist => (
-							<Playlist key={playlist.title} {...playlist} />
+							<Playlist
+								key={playlist.title}
+								{...playlist}
+								toggleScrolling={toggleScrolling}
+							/>
 						))}
 					</div>
 				</div>
@@ -124,7 +132,11 @@ export const MainContent = () => {
 					</div>
 					<div className='grid sm:grid-cols-playlists-mobile md:grid-cols-playlists-tablet lg:grid-cols-playlists-desktop gap-5'>
 						{playlists.map(playlist => (
-							<Playlist key={playlist.title} {...playlist} />
+							<Playlist
+								key={playlist.title}
+								{...playlist}
+								toggleScrolling={toggleScrolling}
+							/>
 						))}
 					</div>
 				</div>
